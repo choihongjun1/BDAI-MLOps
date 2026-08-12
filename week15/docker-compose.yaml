@@ -1,0 +1,26 @@
+services:
+  nginx:
+    image: nginx
+    container_name: nginx_dc
+    ports:
+      - "2000:80"
+  mysql:
+    image: mysql
+    container_name: mysql_dc
+    restart: always
+    ports:
+      - "2100:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_USER=codeit
+      - MYSQL_PASSWORD=sprint
+  postgres:
+    image: postgres:15
+    container_name: postgres_dc
+    restart: always
+    ports:
+      - "2200:5432"
+    environment:
+      - POSTGRES_USER=hyunsoo
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=docker_postgres
